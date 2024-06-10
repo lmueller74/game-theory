@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  background-color: rgb(242, 242, 236);
+}
+
+@font-face {
+  font-family: miracode;
+  src: url(../public/font/Miracode.ttf);
+}
+
+* {
+  font-family: miracode, 'Segoe UI', Tahoma;
+  font-weight: 600;
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
+  background-color: beige;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px 7px;
+}

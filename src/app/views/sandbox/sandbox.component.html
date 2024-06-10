@@ -1,0 +1,38 @@
+<div class="box">
+  <h3 class="round-text">Round: {{ round }}/{{ totalRounds }}</h3>
+  <hr />
+  <div class="game-box">
+    <div class="players-box">
+      <p>User ({{ userScore }})</p>
+      <p>CPU ({{ cpuScore }})</p>
+    </div>
+    <div class="choice-box">
+      <div class="row">
+        @for (choice of userChoices; track choice) {
+        <p class="choices">{{ choice }}</p>
+        }
+      </div>
+      <div class="row">
+        @for (choice of cpuChoices; track choice) {
+        <p class="choices">{{ choice }}</p>
+        }
+      </div>
+    </div>
+  </div>
+  <button (click)="guess('🟢')">Cooperate</button>
+  <button (click)="guess('🔴')">Defect</button>
+  <hr />
+  <div class="rules-box">
+    <h3>Rules</h3>
+    <p>User / CPU</p>
+    <p>Cooperate / Cooperate: +30 / +30</p>
+    <p>Defect / Cooperate: +50 / 0</p>
+    <p>Cooperate / Defect: 0 / +50</p>
+    <p>Defect / Defect: +10 / +10</p>
+    <hr>
+    <p>
+      (Disclaimer: bots follow pre-programmed behavior, but are 100% fair. <br> They do
+      <u>not</u> know your choice before making theirs)
+    </p>
+  </div>
+</div>
