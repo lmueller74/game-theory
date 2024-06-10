@@ -33,6 +33,10 @@
     margin-right: 5px;
     margin-bottom: 5px;
     width: fit-content;
+    transition: 0.3s;
+    &:disabled {
+      background-color: rgba(128, 128, 128, 0.439);
+    }
   }
   .rules-box {
     border: 1px solid black;

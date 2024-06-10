@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavComponent } from '../../components/nav/nav.component'
+import { NavComponent } from '../../components/nav/nav.component';
+import { ResultOverlayComponent } from '../../components/result-overlay/result-overlay.component';
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-sandbox',
   standalone: true,
-  imports: [NavComponent],
+  imports: [NavComponent, ResultOverlayComponent, CommonModule],
   templateUrl: './sandbox.component.html',
   styleUrl: './sandbox.component.scss',
 })
@@ -15,9 +17,13 @@ export class SandboxComponent {
   cpuChoices: string[] = [];
   userScore = 0;
   cpuScore = 0;
+  isGameOver = false;
+  winner = '';
 
   /*
   TODO
+  - Reset game when over
+  - Have better win/lose/draw screen, modal?
   - Hook gameboy favicon up
   - Mobile, ensure scrolling game stays focused to the right, to avoid scrolling with finger every turn
   - Custom round limit
@@ -29,27 +35,26 @@ export class SandboxComponent {
   */
 
   guess(choice: string) {
-    if (this.round === this.totalRounds) {
-      this.gameOver();
-      return;
-    }
     this.round++;
     let cpuChoice = this.getCpuChoice();
     this.userChoices.push(choice);
     this.cpuChoices.push(cpuChoice);
     this.scoreRound(choice, cpuChoice);
+    if (this.round === this.totalRounds) {
+      this.gameOver();
+      return;
+    }
   }
 
   gameOver() {
-    let winner = '';
     if (this.userScore > this.cpuScore) {
-      winner = 'User';
+      this.winner = 'User';
     } else if (this.cpuScore > this.userScore) {
-      winner = 'CPU';
+      this.winner = 'CPU';
     } else {
-      winner = 'Draw';
+      this.winner = 'Draw';
     }
-    alert('Game Over. Winner: ' + winner);
+    this.isGameOver = true;
   }
 
   getCpuChoice(): string {
@@ -71,6 +76,7 @@ export class SandboxComponent {
   }
 
   reset() {
+    this.isGameOver = false;
     this.round = 0;
     this.userChoices = [];
     this.cpuChoices = [];

@@ -1,0 +1,23 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 60vh;
+  position: absolute;
+  overflow: hidden;
+  color: white;
+  .box {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.873);
+  }
+}

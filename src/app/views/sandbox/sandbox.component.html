@@ -1,8 +1,15 @@
 <app-nav></app-nav>
+<app-result-overlay
+  (resetEmitter)="reset()"
+  *ngIf="isGameOver"
+  [winner]="winner"
+  [userScore]="userScore"
+  [cpuScore]="cpuScore"
+></app-result-overlay>
 <div class="box">
   <div class="round-box">
     <h3 class="round-text">Round: {{ round }}/{{ totalRounds }}</h3>
-    <button (click)="reset()">Reset</button>
+    <button [disabled]="this.round === 0" (click)="reset()">Reset</button>
   </div>
   <hr />
   <div class="game-box">
