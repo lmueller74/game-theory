@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NavComponent } from '../../components/nav/nav.component'
 
 @Component({
   selector: 'app-sandbox',
   standalone: true,
-  imports: [],
+  imports: [NavComponent],
   templateUrl: './sandbox.component.html',
   styleUrl: './sandbox.component.scss',
 })
@@ -14,6 +15,18 @@ export class SandboxComponent {
   cpuChoices: string[] = [];
   userScore = 0;
   cpuScore = 0;
+
+  /*
+  TODO
+  - Hook gameboy favicon up
+  - Mobile, ensure scrolling game stays focused to the right, to avoid scrolling with finger every turn
+  - Custom round limit
+  - Adjust difficulty/predictability
+
+  STRETCH
+  - Add more bots to play
+  - Add option to program custom pattern
+  */
 
   guess(choice: string) {
     if (this.round === this.totalRounds) {
@@ -55,6 +68,14 @@ export class SandboxComponent {
       this.userScore += 10;
       this.cpuScore += 10;
     }
+  }
+
+  reset() {
+    this.round = 0;
+    this.userChoices = [];
+    this.cpuChoices = [];
+    this.userScore = 0;
+    this.cpuScore = 0;
   }
 
   strat1(rando: number) {

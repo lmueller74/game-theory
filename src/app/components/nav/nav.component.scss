@@ -1,0 +1,21 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  position: relative;
+  .name {
+    position: absolute;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .box {
+    height: 100px;
+  }
+  .name {
+    position: absolute;
+    bottom: -20px;
+  }
+}

@@ -1,5 +1,9 @@
+<app-nav></app-nav>
 <div class="box">
-  <h3 class="round-text">Round: {{ round }}/{{ totalRounds }}</h3>
+  <div class="round-box">
+    <h3 class="round-text">Round: {{ round }}/{{ totalRounds }}</h3>
+    <button (click)="reset()">Reset</button>
+  </div>
   <hr />
   <div class="game-box">
     <div class="players-box">
@@ -29,10 +33,11 @@
     <p>Defect / Cooperate: +50 / 0</p>
     <p>Cooperate / Defect: 0 / +50</p>
     <p>Defect / Defect: +10 / +10</p>
-    <hr>
+    <hr />
     <p>
-      (Disclaimer: bots follow pre-programmed behavior, but are 100% fair. <br> They do
-      <u>not</u> know your choice before making theirs)
+      (Disclaimer: bots follow pre-programmed behavior, but are 100% fair.
+      <br />
+      They do <u>not</u> know your choice before making theirs)
     </p>
   </div>
 </div>
